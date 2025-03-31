@@ -4,6 +4,8 @@ import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import CoinPage from "./Pages/CoinPage";
 import Header from "./components/Header";
+import Alert from "./components/Alert";
+import CryptoContext from "./CryptoContext"; // ✅ Import CryptoContext
 
 const useStyles = makeStyles(() => ({
   App: {
@@ -17,13 +19,16 @@ function App() {
   const classes = useStyles();
 
   return (
-    <BrowserRouter>
-      <div className={classes.App}>
-        <Header />
-        <Route path="/" component={Homepage} exact />
-        <Route path="/coins/:id" component={CoinPage} exact />
-      </div>
-    </BrowserRouter>
+    <CryptoContext> {/* ✅ Wrap everything inside CryptoContext */}
+      <BrowserRouter>
+        <div className={classes.App}>
+          <Header />
+          <Route path="/" component={Homepage} exact />
+          <Route path="/coins/:id" component={CoinPage} exact />
+        </div>
+        <Alert />
+      </BrowserRouter>
+    </CryptoContext>
   );
 }
 
