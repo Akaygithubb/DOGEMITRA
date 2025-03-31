@@ -41,7 +41,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            Crypto Hunter
+            Doge Mitra
           </Typography>
           <Typography
             variant="subtitle2"
